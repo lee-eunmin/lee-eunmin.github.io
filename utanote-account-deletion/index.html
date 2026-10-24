@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UtaNote 계정 및 클라우드 데이터 삭제</title>
+  <meta name="description" content="UtaNote(우타노트) 계정과 클라우드에 백업된 데이터를 삭제하는 방법 및 삭제 요청 안내">
+  <style>
+    :root {
+      --bg: #f6f6f8;
+      --card: #ffffff;
+      --text: #1b1b1f;
+      --muted: #4a4a55;
+      --line: #dcdce3;
+      --accent: #1f4fd1;
+      --danger: #b3261e;
+      --danger-bg: #fdecea;
+      --ok-bg: #e8f3ec;
+      --ok: #1e6b3a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111114;
+        --card: #1c1c21;
+        --text: #f1f1f4;
+        --muted: #c2c2cc;
+        --line: #34343c;
+        --accent: #8fb0ff;
+        --danger: #ffb4ab;
+        --danger-bg: #3a1714;
+        --ok-bg: #12301d;
+        --ok: #a6dcb5;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 32px 16px 48px; }
+    .app { font-weight: 700; color: var(--accent); margin: 0 0 4px; letter-spacing: .02em; }
+    h1 { font-size: 1.9rem; line-height: 1.3; margin: 0 0 12px; }
+    h2 { font-size: 1.25rem; margin: 0 0 12px; }
+    h3 { font-size: 1.05rem; margin: 20px 0 8px; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 12px; padding-left: 1.4em; }
+    li { margin: 4px 0; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .lead { color: var(--muted); font-size: 1.05rem; }
+    .note {
+      border-left: 4px solid var(--danger);
+      background: var(--danger-bg);
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+    .note strong { color: var(--danger); }
+    .btn {
+      display: block;
+      text-align: center;
+      background: var(--danger);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0 8px;
+    }
+    @media (prefers-color-scheme: dark) { .btn { color: #2b0805; } }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .email { font-weight: 700; font-size: 1.05rem; }
+    a { color: var(--accent); }
+    .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    @media (min-width: 600px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .box { border-radius: 10px; padding: 14px 16px; }
+    .box h3 { margin-top: 0; }
+    .box ul { margin-bottom: 0; }
+    .del { background: var(--danger-bg); }
+    .del h3 { color: var(--danger); }
+    .keep { background: var(--ok-bg); }
+    .keep h3 { color: var(--ok); }
+    footer { color: var(--muted); font-size: .95rem; margin-top: 24px; padding: 0 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="app">UtaNote (우타노트)</p>
+  <h1>UtaNote 계정 및 클라우드 데이터 삭제</h1>
+  <p class="lead">
+    UtaNote에서 Google 계정을 연결해 클라우드 백업을 사용하셨다면,
+    언제든지 UtaNote 계정과 그 계정에 연결된 클라우드 데이터를 삭제할 수 있습니다.
+  </p>
+
+  <section aria-labelledby="in-app">
+    <h2 id="in-app">앱이 설치되어 있는 경우 (앱에서 바로 삭제)</h2>
+    <ol>
+      <li>UtaNote를 실행합니다.</li>
+      <li>계정 메뉴를 엽니다.</li>
+      <li><strong>"계정 및 클라우드 데이터 삭제"</strong>를 선택합니다.</li>
+      <li>안내 내용을 확인한 뒤 삭제를 진행합니다.</li>
+      <li>Google 계정으로 본인 확인을 합니다.</li>
+    </ol>
+    <p>앱에서 삭제하면 다음 항목이 삭제됩니다.</p>
+    <ul>
+      <li>Firebase Authentication에 있는 UtaNote 계정</li>
+      <li>클라우드에 저장된 노래 데이터</li>
+      <li>클라우드에 저장된 폴더 데이터</li>
+      <li>클라우드에 저장된 폴더-노래 연결 데이터</li>
+    </ul>
+    <p>앱에서 삭제가 정상적으로 끝나면 바로 처리됩니다.</p>
+    <div class="note">
+      <strong>기기에 저장된 노래장은 함께 삭제되지 않습니다.</strong><br>
+      앱에서 계정을 삭제해도 이 기기 안에 저장된 로컬 노래장 데이터는 그대로 남습니다.
+      기기에서도 지우려면 Android 설정에서 UtaNote의 앱 데이터를 삭제하거나 앱을 제거하세요.
+    </div>
+  </section>
+
+  <section aria-labelledby="by-email">
+    <h2 id="by-email">앱이 없거나 앱을 사용할 수 없는 경우</h2>
+    <p>
+      앱을 다시 설치하지 않아도 됩니다. 아래 버튼으로 이메일을 보내 계정 삭제 요청을 시작할 수 있습니다.
+    </p>
+    <a class="btn" href="mailto:utanote.karaoke@gmail.com?subject=%5BUtaNote%5D%20%EA%B3%84%EC%A0%95%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD&amp;body=UtaNote%20%EA%B3%84%EC%A0%95%20%EB%B0%8F%20%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%82%AD%EC%A0%9C%EB%A5%BC%20%EC%9A%94%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4.">계정 삭제 요청 이메일 보내기</a>
+    <p>
+      버튼이 동작하지 않으면 아래 주소로 직접 메일을 보내주세요.<br>
+      받는 사람: <span class="email">utanote.karaoke@gmail.com</span><br>
+      제목: [UtaNote] 계정 삭제 요청<br>
+      내용: UtaNote 계정 및 클라우드 데이터 삭제를 요청합니다.
+    </p>
+    <h3>본인 확인 안내</h3>
+    <ul>
+      <li>가능하면 <strong>UtaNote에 연결했던 Google 계정의 이메일 주소</strong>에서 요청해 주세요.</li>
+      <li>본인 확인을 위해 필요한 경우 추가 정보를 요청드릴 수 있습니다.</li>
+      <li><strong>비밀번호, Google 계정 비밀번호, 인증 코드는 절대 요청하지 않습니다.</strong> 이런 정보는 보내지 마세요.</li>
+    </ul>
+    <p>이메일로 받은 요청은 본인 확인 후 가능한 한 신속하게 처리합니다.</p>
+  </section>
+
+  <section aria-labelledby="scope">
+    <h2 id="scope">삭제되는 데이터와 남는 데이터</h2>
+    <div class="grid">
+      <div class="box del">
+        <h3>삭제되는 데이터</h3>
+        <ul>
+          <li>UtaNote Firebase 로그인 계정</li>
+          <li>UtaNote에 연결된 계정 식별 정보</li>
+          <li>클라우드에 백업된 노래</li>
+          <li>클라우드에 백업된 폴더</li>
+          <li>클라우드의 폴더-노래 연결 정보</li>
+        </ul>
+      </div>
+      <div class="box keep">
+        <h3>삭제되지 않는 데이터</h3>
+        <ul>
+          <li>사용자의 기기에만 저장된 로컬 노래장 데이터</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:12px">
+      UtaNote 계정·클라우드 데이터 삭제와 기기 안의 로컬 데이터 삭제는 별개입니다.
+      계정을 삭제해도 기기 속 노래장은 남아 있고, 기기 속 노래장은 앱 데이터 삭제나 앱 제거로 지울 수 있습니다.
+    </p>
+  </section>
+
+  <section aria-labelledby="security">
+    <h2 id="security">보안 목적의 최소 기록</h2>
+    <p>
+      계정을 삭제한 뒤, 다른 기기에 남아 있던 이전 로그인 상태 때문에 삭제된 데이터가
+      다시 만들어지는 것을 막기 위해 다음 정보만으로 이루어진 최소한의 보안 기록을 보관합니다.
+    </p>
+    <ul>
+      <li>삭제된 계정의 Firebase 내부 식별자(UID)</li>
+      <li>삭제 시각</li>
+    </ul>
+    <p>
+      이 기록에는 이메일, 이름, 노래, 폴더 및 그 밖의 사용자 콘텐츠가 포함되지 않습니다.
+      이 기록은 삭제된 데이터의 재생성을 방지하기 위한 보안 목적으로 보관합니다.
+    </p>
+  </section>
+
+  <footer>
+    <p>앱: UtaNote (우타노트) · 개발자: 이응만</p>
+    <p>문의: <a href="mailto:utanote.karaoke@gmail.com">utanote.karaoke@gmail.com</a></p>
+    <p><a href="https://docs.google.com/document/d/e/2PACX-1vRNG4p1IuKYHKLgS7ahPAWu5_MH4vmY8JTvVZjpE8Yi-pFvP6donk4ll6QQRQ0ikq8w5Wgcy428km3F/pub">개인정보처리방침</a></p>
+  </footer>
+</main>
+</body>
+</html>
